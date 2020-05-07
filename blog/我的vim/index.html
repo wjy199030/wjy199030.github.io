@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="your description">
+    <meta name="Author" content="铁桶">
+    <meta name="keywords" content="hugo blog">
+    <link rel="stylesheet" href=https://wjy199030.github.io/css/syntax.css>
+    <link rel="stylesheet" href=https://wjy199030.github.io/css/style.css>
+    <script src="https://kit.fontawesome.com/1b7478c139.js" crossorigin="anonymous"></script>
+    <title>铁桶</title>
+  </head><body><aside id="sidenav">
+    <header>
+    
+        <a href=https://wjy199030.github.io/><img src="https://wjy199030.github.io/avatar.png" alt="avatar"></a>
+        
+    
+
+    <a id="branding" href=https://wjy199030.github.io/>
+        
+            铁桶
+        
+    </a>
+    </header>
+
+    <nav>
+        
+            		
+            <a href="/"
+                
+            >
+                <i class="fas fa-home fa-sm"></i>
+                <span>home</span>
+            </a>
+        
+            		
+            <a href="/blog/"
+                
+            >
+                <i class="fas fa-keyboard fa-ms"></i>
+                <span>blog</span>
+            </a>
+        
+            		
+            <a href="/tags"
+                
+            >
+                <i class="fas fa-tags fa-ms"></i>
+                <span>tags</span>
+            </a>
+        
+            		
+            <a href="https://github.com/yourgithubusername23434"
+                
+                    target="_blanck"
+                
+            >
+                <i class="fab fa-github fa-ms"></i>
+                <span>github</span>
+            </a>
+        
+            		
+            <a href="/index.xml"
+                
+            >
+                <i class="fas fa-rss fa-ms"></i>
+                <span>RSS</span>
+            </a>
+        
+            		
+            <a href="/contact"
+                
+            >
+                <i class="far fa-envelope"></i>
+                <span>contact</span>
+            </a>
+        
+</aside>
+<main id="main">
+            <a href="javascript:void(0)" id="closebtn" onclick="navToggle()"><i class="fas fa-bars fa-lg"></i></a>
+            <div class="content">
+    
+    <h1 id="title">远程开发环境分享</h1>
+    
+      
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#远程开发环境分享">远程开发环境分享</a></li>
+    <li><a href="#一vim代替vscode">一、vim代替vscode</a>
+      <ul>
+        <li><a href="#二tmux结合vim">二、tmux结合vim</a></li>
+        <li><a href="#三autojump快速跳转">三、autojump快速跳转</a></li>
+        <li><a href="#四fzf模糊查找">四、fzf模糊查找</a></li>
+        <li><a href="#五ag字符搜索">五、ag字符搜索</a></li>
+        <li><a href="#六oh-my-zsh-优化体验">六、oh my zsh 优化体验</a></li>
+        <li><a href="#七ranger文件管理器">七、ranger文件管理器</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    <h2 id="远程开发环境分享">远程开发环境分享</h2>
+<blockquote>
+<p>云开发机解决了公用开发机相互干扰，磁盘空间不足，性能不足的问题，每个开发人员可以独占机器资源，并且能随时随地访问资源。大部分同事用vscode进行远程开发，还算比较方便，但是某些场景例如：下班回家，有个需求需要加班做，切换另一台电脑，vscode配置成常用机器才能顺手，同时打开的workspace,无法进行同步，思路往往被打断。本文分享下如何做到多地办公开发无缝切换的一套解决方案。</p>
+</blockquote>
+<h2 id="一vim代替vscode">一、vim代替vscode</h2>
+<p>思路是这样的，本地ide/编辑器总是有同步配置的苦恼，那么用远端开发机上的ide/编辑器就可以规避这个问题，但是开发机是linux操作系统，所有不能用vscode。<br>
+vim是一款不错的编辑器，大部分vscode的功能都有替代方案，优点是编码的时候不用鼠标去打开切换文件，且很方便开多窗口编辑。</p>
+<p><img src="https://raw.githubusercontent.com/wjy199030/markdownpic/master/res/vim-main.png" alt="我的vim界面"></p>
+<h3 id="二tmux结合vim">二、tmux结合vim</h3>
+<p>单独用vim还是没法解决切换电脑，workspace无缝切换的问题。而且用mac终端远程开发的同事容易碰到断开连接的问题，一旦断开连接，那么文件没有保存，而且打开的文件需要重新打开，十分痛苦。<br>
+那么好tmux完美解决这两个问题。它是一款终端复用软件</p>
+<ol>
+<li>
+<p>丝滑分屏
+<img src="https://github.com/wjy199030/markdownpic/blob/master/res/tmux%E5%A4%9A%E7%AA%97%E5%8F%A3.gif?raw=" alt="tmux分屏">
+tmux窗口中，新开的pane，默认进入到之前的路径，如果是ssh连接，登录状态也依旧保持着。
+我一般一个pane编译，一个pane用git,有时一个pane解决编译报错，或者其他。</p>
+</li>
+<li>
+<p>保护现场<br>
+下面模拟断线重连操作，根本不怕文件丢失，秒秒钟恢复工作空间。
+<img src="https://github.com/wjy199030/markdownpic/blob/master/res/tmux%E6%96%AD%E7%BA%BF%E9%87%8D%E8%BF%9E.gif?raw=true" alt="tmux重回工作空间"></p>
+</li>
+<li>
+<p>共享会话
+如果在工位上想请教别人代码，怎么办呢，分享你的云主机+会话名给他。这样你们就能共享屏幕了，甚至可以结对编程。</p>
+</li>
+</ol>
+<p><em><strong>我一般用的是前两个功能，共享会话还是很少用，除非有一起用的小伙伴</strong></em></p>
+<h3 id="三autojump快速跳转">三、autojump快速跳转</h3>
+<h3 id="四fzf模糊查找">四、fzf模糊查找</h3>
+<h3 id="五ag字符搜索">五、ag字符搜索</h3>
+<h3 id="六oh-my-zsh-优化体验">六、oh my zsh 优化体验</h3>
+<h3 id="七ranger文件管理器">七、ranger文件管理器</h3>
+    
+    <div class="nav-next-prev">
+        <div class="nav-prev">
+            
+                <a href="https://wjy199030.github.io/blog/markdown-syntax/"><i class="fas fa-chevron-left"></i></a>
+            
+        </div>
+        <a class="nav-top" href="#">top</i></a>
+        <div class="nav-next">
+            
+                <a class="grayed-out" href="javascript:void()"><i class="fas fa-chevron-right"></i></a>
+            
+        </div>
+    </div>
+    
+
+            </div><footer>
+<div class="footer-content">
+<div class="contact-info">
+    
+        <div class="footer-mail">
+        <i class="far fa-envelope"></i> <a href="mailto:563166928@qq.com">563166928@qq.com</a> </div>
+    
+    
+    <div class="footer-phone">
+        <i class="fas fa-phone"></i> 8888888888 
+    </div>
+    
+</div>
+
+<p class="copyright meta">Copyright © 2008–2019, Steve Francia and the Hugo Authors; all rights reserved.</p>
+
+</div>
+</footer></main>
+    </body>
+    <script src=https://wjy199030.github.io/js/navbutton.js></script>
+</html>

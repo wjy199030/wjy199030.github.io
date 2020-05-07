@@ -1,15 +1,43 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on title</title>
+    <title>Categories on 铁桶</title>
     <link>https://wjy199030.github.io/categories/</link>
-    <description>Recent content in Categories on title</description>
+    <description>Recent content in Categories on 铁桶</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2008–2019, Steve Francia and the Hugo Authors; all rights reserved.</copyright>
+    <lastBuildDate>Thu, 07 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://wjy199030.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>技巧</title>
+      <link>https://wjy199030.github.io/categories/%E6%8A%80%E5%B7%A7/</link>
+      <pubDate>Thu, 07 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://wjy199030.github.io/categories/%E6%8A%80%E5%B7%A7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>syntax</title>
+      <link>https://wjy199030.github.io/categories/syntax/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://wjy199030.github.io/categories/syntax/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>themes</title>
+      <link>https://wjy199030.github.io/categories/themes/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://wjy199030.github.io/categories/themes/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>
