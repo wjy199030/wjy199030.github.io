@@ -105,21 +105,21 @@
 <h2 id="一vim代替vscode">一、vim代替vscode</h2>
 <p>思路是这样的，本地ide/编辑器总是有同步配置的苦恼，那么用远端开发机上的ide/编辑器就可以规避这个问题，但是开发机是linux操作系统，所有不能用vscode。<br>
 vim是一款不错的编辑器，大部分vscode的功能都有替代方案，优点是编码的时候不用鼠标去打开切换文件，且很方便开多窗口编辑。</p>
-<p><img src="https://raw.githubusercontent.com/wjy199030/markdownpic/master/res/vim-main.png" alt="我的vim界面"></p>
+<p><img src="https://gitee.com/wjy199030/blogimage/raw/master/res/vim-main.png" alt="我的vim界面"></p>
 <h3 id="二tmux结合vim">二、tmux结合vim</h3>
 <p>单独用vim还是没法解决切换电脑，workspace无缝切换的问题。而且用mac终端远程开发的同事容易碰到断开连接的问题，一旦断开连接，那么文件没有保存，而且打开的文件需要重新打开，十分痛苦。<br>
 那么好tmux完美解决这两个问题。它是一款终端复用软件</p>
 <ol>
 <li>
-<p>丝滑分屏
-<img src="https://github.com/wjy199030/markdownpic/blob/master/res/tmux%E5%A4%9A%E7%AA%97%E5%8F%A3.gif?raw=" alt="tmux分屏">
+<p>丝滑分屏<br>
+<img src="https://gitee.com/wjy199030/blogimage/raw/master/res/tmux%E5%A4%9A%E7%AA%97%E5%8F%A3.gif" alt="tmux分屏">
 tmux窗口中，新开的pane，默认进入到之前的路径，如果是ssh连接，登录状态也依旧保持着。
 我一般一个pane编译，一个pane用git,有时一个pane解决编译报错，或者其他。</p>
 </li>
 <li>
 <p>保护现场<br>
-下面模拟断线重连操作，根本不怕文件丢失，秒秒钟恢复工作空间。
-<img src="https://github.com/wjy199030/markdownpic/blob/master/res/tmux%E6%96%AD%E7%BA%BF%E9%87%8D%E8%BF%9E.gif?raw=true" alt="tmux重回工作空间"></p>
+下面模拟断线重连操作，根本不怕文件丢失，秒秒钟恢复工作空间。<br>
+<img src="https://gitee.com/wjy199030/blogimage/raw/master/res/tmux%E6%96%AD%E7%BA%BF%E9%87%8D%E8%BF%9E.gif" alt="tmux重回工作空间"></p>
 </li>
 <li>
 <p>共享会话
